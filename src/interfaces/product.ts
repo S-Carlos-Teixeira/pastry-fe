@@ -1,8 +1,13 @@
+import { Key } from "react"
+import { IImage } from "./image"
+
 export interface IProduct {
-  name: String,
-  description: String,
-  price: Number,
-  inStock: Boolean,
-  createdBy: Number,
-  id: Number
+  name: string,
+  description: string,
+  price: number,
+  in_stock: boolean,
+  createdBy: number,
+  id: number,
+  isHome: boolean,
+  images: Array<IImage>
 } 

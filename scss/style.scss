@@ -3,7 +3,8 @@ $secondary: #ADDBE2;
 $success: #ED6C87;
 $danger: #F5B1CC;
 
-
+$enable-shadows: true;
+$enable-rounded: true;
 @import "../node_modules/bootstrap/scss/bootstrap.scss";
 
 

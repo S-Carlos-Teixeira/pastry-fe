@@ -1,6 +1,6 @@
 export interface ICart {
-  id: Number,
-  userId: Number,
-  expireDate: Date,
-  isActive: Boolean,
+  id: number,
+  user_id: number,
+  expire_date: Date,
+  is_active: boolean,
 }

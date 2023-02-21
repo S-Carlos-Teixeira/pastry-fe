@@ -1,10 +1,10 @@
 export interface IUser {
-  username: String,
-  name: String,
-  surname: String,
-  phone: String,
-  email: String,
-  password: String,
-  roleId: Number,
-  id: Number
+  username: string,
+  name: string,
+  surname: string,
+  phone: string,
+  email: string,
+  password: string,
+  role_id: number,
+  id: number
 } 

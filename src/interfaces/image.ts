@@ -1,5 +1,5 @@
 export interface IImage {
-  id: Number,
-  imageUrl: String,
-  productId: Number
+  id: number,
+  image_url: string,
+  product_id: number
 }

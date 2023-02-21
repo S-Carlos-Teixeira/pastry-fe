@@ -1,8 +1,8 @@
 export interface IOrder {
-  userId: Number,
-  cartId: Number,
-  id: Number,
-  status: String,
-  total: Number,
-  isActive: Boolean,
+  user_id: number,
+  cart_id: number,
+  id: number,
+  status: string,
+  total: number,
+  is_active: boolean,
 } 
