@@ -9,7 +9,7 @@ export default defineConfig({
       proxy: {
         // with options
         '/api': {
-          target: 'http://localhost:5432',
+          target: 'http://127.0.0.1:4000',
           changeOrigin: true
         },
       }

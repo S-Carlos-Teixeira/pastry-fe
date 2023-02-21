@@ -1,0 +1,15 @@
+export interface IAddress {
+  id: Number,
+  userId: Number,
+  addressLine1: String,
+  addressLine2: String,
+  townCity: String,
+  county: String,
+  postcode: String,
+  country: String,
+  isDefault: Boolean,
+  isBillingAddress: Boolean,
+  deliveryInstr: String,
+  fullName: String,
+  phone: String,
+}
