@@ -1,7 +1,7 @@
 import { Link, useNavigate } from 'react-router-dom'
 import { IUser } from '../interfaces/user'
 import { baseUrl } from '../config'
-import logo from '../../assets/img/logo.png'
+import logo from '../../assets/img/logo.svg'
 import { Button, Nav, Navbar as NavbarBs } from 'react-bootstrap'
 import Container from 'react-bootstrap/esm/Container'
 import { NavLink } from 'react-router-dom'
@@ -22,15 +22,15 @@ function Navbar({ user, setUser }: NavbarProps) {
   return (
     <>
       <header className="mb-3">
-        <NavbarBs className="shadow-sm bg-white" sticky='top'>
+        <NavbarBs className="shadow-sm " sticky='top'>
           <Container>
             <Nav className="me-auto">
-              <Nav.Link as={NavLink} to="/" className="navbar-brand">
+              <Nav.Link as={NavLink} to="/" className="navbar-brand me-5">
                 <img
                   className="img-fluid "
                   src={logo}
                   alt="logo"
-                  style={{ width: '4rem' }}
+                  style={{ width: '7rem' }}
                 />
               </Nav.Link>
 
@@ -51,12 +51,12 @@ function Navbar({ user, setUser }: NavbarProps) {
               >
                 <ul className="navbar-nav me-auto mb-2 mb-lg-0">
                   <li className="nav-item">
-                    <Link to="/" className="nav-link">
+                    <Link to="/" className="nav-link ">
                       Home
                     </Link>
                   </li>
                   <li className="nav-item">
-                    {user?.roleId && (
+                    {user?.role_id! >= 2 && (
                       <Link to="/addproduct" className="nav-link">
                         Add product
                       </Link>
@@ -100,7 +100,7 @@ function Navbar({ user, setUser }: NavbarProps) {
                 </ul>
               </div>
             </Nav>
-            <Button style={{width: "3rem", height: "3rem", position: "relative"}} variant="outline-success" className='rounded-circle'>
+            <Button style={{width: "3rem", height: "3rem", position: "relative"}} variant="outline-primary" className='rounded-circle'>
             <svg
               xmlns="http://www.w3.org/2000/svg"
               viewBox="0 0 576 512"

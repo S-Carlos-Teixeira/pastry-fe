@@ -1,12 +1,35 @@
+@import url('https://fonts.googleapis.com/css2?family=Gothic+A1:wght@300;400;700;900&display=swap');
+
+$font-family-sans-serif:    'Gothic A1', sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", "Noto Sans", "Liberation Sans", Arial, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+
 $primary: #522b29;
 $secondary: #ADDBE2;
 $success: #ED6C87;
 $danger: #F5B1CC;
+$rose-quartz: #BBA8A7;
+$cherry-blossom-pink: #F3AAB9;
+$light-cyan: #D2EBEF;
+$cinereous: #937776;
+$anti-flash-white: #EFF2F3;
+$lavander-blush: #F7EAEA;
 
 $enable-shadows: true;
 $enable-rounded: true;
 @import "../node_modules/bootstrap/scss/bootstrap.scss";
 
+header{
+    background-color: $cherry-blossom-pink;
+    background-size: auto;
+    background-position: center;
+}
+
+body{
+  background-image: url(../assets/img/stories1.png);
+  background-color: $lavander-blush;
+  background-size: cover;
+  background-position: center, center;
+  background-repeat: no-repeat;
+}
 
 
 

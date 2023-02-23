@@ -37,7 +37,7 @@ function App() {
     
       <Router>
         <Navbar user={user} setUser={setUser} />
-        <Container className='mb-4'>
+        <main className='mb-4 container'>
           <Routes>
             <Route path="/" element={<Home />} />
             {/* <Route path="/signup" element={<Signup />} /> */}
@@ -50,7 +50,7 @@ function App() {
             {/* <Route path="/address" element={<Address />} /> */}
             {/* <Route path="/payment" element={<Payment />} /> */}
           </Routes>
-        </Container>
+        </main>
       </Router>
     
   )
