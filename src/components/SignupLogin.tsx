@@ -61,7 +61,6 @@ function SignUpLogin({ fetchUser }: { fetchUser: Function }) {
 
     newFormDataLogin [event.target.name] = event.target.value 
     
-    type T = typeof newFormDataLogin
     console.log(newFormDataLogin)
 
     setFormDataLogin(newFormDataLogin)
@@ -69,7 +68,7 @@ function SignUpLogin({ fetchUser }: { fetchUser: Function }) {
   }
 
   function handleChangeSignup(event: ChangeEvent<HTMLInputElement>): void {
-    const newFormDataSignup: Partial<IUser> = structuredClone(formDataSignup)
+    const newFormDataSignup = structuredClone(formDataSignup)
     newFormDataSignup[event.currentTarget.name] = event.currentTarget.value
    
     
