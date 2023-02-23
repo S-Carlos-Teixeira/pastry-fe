@@ -4,10 +4,10 @@ import { IProduct } from '../interfaces/product'
 import { formatCurrency } from '../utility/currencyFormater'
 
 function Product({ id, name, description, price, images, isHome }: IProduct) {
-  const quantity = 0
+  const quantity = 1
   return (
     <Card className="">
-      <Link to={`/product/${id}`} className="">
+      
         <Card.Img
           src={images[0]?.image_url}
           alt={name}
@@ -15,7 +15,7 @@ function Product({ id, name, description, price, images, isHome }: IProduct) {
           height="200px"
           style={{ objectFit: 'cover' }}
         />
-      </Link>
+      
       <Card.Body className="d-flex flex-column bg-secondary" >
         <Card.Title className="d-flex justify-content-between align-items-baseline mb-4">
           <span className="fs-2">{name}</span>

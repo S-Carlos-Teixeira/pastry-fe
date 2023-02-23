@@ -5,6 +5,7 @@ export interface IUser {
   phone: string,
   email: string,
   password: string,
+  confirm_password: string,
   role_id: number,
   id: number
 } 
