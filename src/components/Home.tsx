@@ -24,10 +24,10 @@ function Home() {
   }, [])
 
   return (
-    <Row xs={1} md={2} lg={3} className="g-3">
+    <Row xs={1} sm={1} md={2} lg={2} xl={3} className="g-3">
       {Products?.map(product => (
         <Col key={product.id}>
-          <Product {...product} isHome={true} />
+          {product.in_stock && < Product {...product} isHome={true} />}
         </Col>
       ))}
     </Row>

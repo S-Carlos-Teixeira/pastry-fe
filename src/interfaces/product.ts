@@ -9,5 +9,13 @@ export interface IProduct {
   createdBy: number,
   id: number,
   isHome: boolean,
-  images: Array<IImage>
+  images: Array<Partial<IImage>>
 } 
+
+export interface IProductCreate {
+  name: string,
+  description: string,
+  price: number,
+  in_stock: boolean,
+  image_url: string
+}

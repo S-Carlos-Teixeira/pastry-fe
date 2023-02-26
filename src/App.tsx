@@ -5,22 +5,22 @@ import { Container } from 'react-bootstrap'
 import { baseUrl } from './config'
 import Home from './components/Home'
 import Navbar from "./components/Navbar"
-// import Signup from "./components/Signup"
 import SignUpLogin from "./components/SignupLogin"
 import { IUser } from './interfaces/user'
-// import AddProduct from "./components/AddProduct"
-// import ShowProduct from "./components/ShowProduct"
-// import Payment from "./components/Payment"
-// import Address from "./components/Address"
-// import SellerSignup from "./components/SellerSignup"
-// import Cart from "./components/Cart"
+import CreateProduct from "./components/CreateProduct"
+import ShowProduct from "./components/ShowProduct"
+import Cart from "./components/Cart"
+import { ICartItem } from './interfaces/cartItem'
 // import Order from "./components/Order"
 
 function App() {
   const [user, setUser] = useState<null | IUser>(null)
+  const [show, setShow] = useState(false)
+  const [cartItems, setCartItems] = useState<Array<Partial<ICartItem>>>([])
 
   async function fetchUser() {
     const token = localStorage.getItem('token')
+    
     const { data } = await axios.get(`${baseUrl}/user`, {
       headers: { Authorization: `Bearer ${token}` }
     })
@@ -36,21 +36,18 @@ function App() {
   return (
     
       <Router>
-        <Navbar user={user} setUser={setUser} />
-        <main className='mb-4 container'>
+        
+        <Navbar user={user} setUser={setUser} show={show} setShow={setShow} />
+        <Container fluid={true} className='mb-4 container'>
           <Routes>
             <Route path="/" element={<Home />} />
-            {/* <Route path="/signup" element={<Signup />} /> */}
             <Route path="/login" element={<SignUpLogin fetchUser={fetchUser} />} />
-            {/* <Route path="/product/:productId" element={<ShowProduct user={user} setUser={setUser}/>} /> */}
-            {/* <Route path="/addproduct" element={<AddProduct />} /> */}
-            {/* <Route path="/seller/signup" element={<SellerSignup />} /> */}
-            {/* <Route path="/cart" element={<Cart />}/> */}
+            <Route path="/product/:productId" element={<ShowProduct user={user}/>} />
+            <Route path="/addproduct" element={<CreateProduct user={user} />} />
+            <Route path="/cart" element={ <Cart show={show} setShow={setShow}  />}/>
             {/* <Route path="/order" element={<Order />}/> */}
-            {/* <Route path="/address" element={<Address />} /> */}
-            {/* <Route path="/payment" element={<Payment />} /> */}
           </Routes>
-        </main>
+        </Container>
       </Router>
     
   )
