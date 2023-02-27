@@ -10,6 +10,7 @@ export interface IProduct {
   id: number,
   isHome: boolean,
   images: Array<Partial<IImage>>
+  fetchCart:Function
 } 
 
 export interface IProductCreate {

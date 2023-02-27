@@ -7,15 +7,17 @@ import { NavLink } from 'react-router-dom'
 import { RiLogoutBoxRFill } from 'react-icons/ri'
 import Cart from './Cart'
 import { useState } from 'react'
+import { ICart } from '../interfaces/cart'
 
 interface NavbarProps {
   user: IUser | null
   show: boolean
+  cart: ICart | null
   setUser: Function
   setShow: Function
 }
 
-function Navbar({ user, setUser, show, setShow}: NavbarProps) {
+function Navbar({ user, setUser, show, setShow, cart}: NavbarProps) {
   const navigate = useNavigate()
   function logout() {
     localStorage.removeItem('token')
@@ -92,7 +94,7 @@ function Navbar({ user, setUser, show, setShow}: NavbarProps) {
                 style={{ width: '3rem', height: '3rem', position: 'relative' }}
                 variant="outline-primary"
                 className="rounded-circle mx-2 my-2"
-                onClick={()=>{setShow(true), navigate('/cart')}}
+                onClick={()=>{setShow(true)}}
               >
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
@@ -113,7 +115,7 @@ function Navbar({ user, setUser, show, setShow}: NavbarProps) {
                     transform: 'translate(25%, 25%)'
                   }}
                 >
-                  3
+                  {cart?.products?.length}
                 </div>
               </Button>
             </NavbarBs.Collapse>

@@ -1,40 +1,41 @@
 
 import { Button, Container, Offcanvas, Stack } from 'react-bootstrap'
+import { ICart } from '../interfaces/cart'
 import { IUser } from '../interfaces/user'
 import { formatCurrency } from '../utility/currencyFormater'
+import CartItem from './CartItem'
 
 
 interface CartProps {
   show: boolean
   setShow: Function
+  cart: ICart | null
 }
 
-function Cart({ show, setShow }: CartProps) {
+function Cart({ show, setShow, cart }: CartProps) {
   const handleClose = () => setShow(false)
   const handleShow = () => setShow(true)
+  if (!cart) return null
   return (
     <Container>
-      <Button variant="primary" onClick={handleShow} >
-        Launch
-      </Button>
+      
       <Offcanvas show={show} onHide={handleClose} placement="end">
         <Offcanvas.Header closeButton>
           <Offcanvas.Title>Cart</Offcanvas.Title>
         </Offcanvas.Header>
         <Offcanvas.Body>
           <Stack gap={3}>
-          {/* {cartItems.map(item => (
-            <CartItem key={item.id} {...item} />
-          ))} */}
-          {/* <div className="ms-auto fw-bold fs-5">
+          {cart.products.map(item => (
+            cart && <CartItem key={item.id} {...item} />
+          ))}
+          <div className="ms-auto fw-bold fs-5">
             Total{" "}
             {formatCurrency(
-              cartItems.reduce((total, cartItem) => {
-                const item = storeItems.find(i => i.id === cartItem.id)
-                return total + (item?.price || 0) * cartItem.quantity
+              cart.products.reduce((total, cartItem) => {
+                return total + (cartItem.product?.price || 0) * (cartItem.quantity || 0)
               }, 0)
             )}
-          </div>             */}
+          </div>            
           </Stack>
         </Offcanvas.Body>
       </Offcanvas>

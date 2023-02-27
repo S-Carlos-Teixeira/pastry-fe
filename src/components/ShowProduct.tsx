@@ -3,19 +3,49 @@ import React, { SyntheticEvent, useState } from 'react'
 import { Button, ButtonGroup, Card, Col, Container, Row } from 'react-bootstrap'
 import { useNavigate, useParams } from 'react-router-dom'
 import { baseUrl } from '../config'
+import { ICartItem } from '../interfaces/cartItem'
 import { IProduct } from '../interfaces/product'
 import { IUser } from '../interfaces/user'
 import { formatCurrency } from '../utility/currencyFormater'
 
 interface ShowProductProps {
   user: IUser | null
+  fecthCart: () => void
 }
 
-function ShowProduct({ user }: ShowProductProps) {
+function ShowProduct({ user, fecthCart }: ShowProductProps) {
   const [product, updateProduct] = React.useState<IProduct | null>(null)
   const [errorMessage, setErrorMessage] = useState('')
   const { productId } = useParams()
   const navigate = useNavigate()
+  const [cartItem, setCartItem] = useState<ICartItem | null>(null)
+  
+  async function addToCart() {
+    const token = localStorage.getItem('token')
+    console.log(token);
+    const {data}  = await axios.post(`${baseUrl}/cart_item/product/${product?.id}`,{} ,{
+      headers: { Authorization: `Bearer ${token}` }
+    })
+    setCartItem(data)
+  }
+  async function updateCart(){
+    const token = localStorage.getItem('token')
+    const body = {quantity: cartItem?.quantity! - 1}
+    console.log(token);
+    const {data}  = await axios.put(`${baseUrl}/cart_item/${cartItem?.id}`,body ,{
+      headers: { Authorization: `Bearer ${token}` }
+    })
+    setCartItem(data)   
+  }
+
+  async function handleDelete(){
+    const token = localStorage.getItem('token')
+    console.log(token);
+    const {data}  = await axios.delete(`${baseUrl}/cart_item/${cartItem?.id}`,{
+      headers: { Authorization: `Bearer ${token}` }
+    })
+    setCartItem(null)
+  }
 
   // async function handleAddToCart(e: SyntheticEvent) {
   //   e.preventDefault()
@@ -45,7 +75,7 @@ function ShowProduct({ user }: ShowProductProps) {
     }
     fetchProducts()
   }, [])
-  const quantity = 0
+  const quantity = cartItem?.quantity || 0
   return (
     <section className="">
       <Container fluid className="bg-success pb-3">

@@ -10,17 +10,19 @@ import { IUser } from './interfaces/user'
 import CreateProduct from "./components/CreateProduct"
 import ShowProduct from "./components/ShowProduct"
 import Cart from "./components/Cart"
-import { ICartItem } from './interfaces/cartItem'
+import { ICart } from './interfaces/cart'
 // import Order from "./components/Order"
 
 function App() {
   const [user, setUser] = useState<null | IUser>(null)
   const [show, setShow] = useState(false)
-  const [cartItems, setCartItems] = useState<Array<Partial<ICartItem>>>([])
+  const [cart, setCart] = useState<null| ICart>(null)
+
+  
 
   async function fetchUser() {
     const token = localStorage.getItem('token')
-    
+
     const { data } = await axios.get(`${baseUrl}/user`, {
       headers: { Authorization: `Bearer ${token}` }
     })
@@ -28,6 +30,19 @@ function App() {
 
     setUser(data)
   }
+  async function fetchCart() {
+    const token = localStorage.getItem('token')
+    const { data } = await axios.get(`${baseUrl}/cart`, {
+      headers: { Authorization: `Bearer ${token}` }
+    })
+    setCart(data)
+    console.log(cart);
+    
+  }
+
+  useEffect(() => {
+    fetchCart()
+  }, [user])
 
   useEffect(() => {
     const token = localStorage.getItem('token')
@@ -37,17 +52,17 @@ function App() {
     
       <Router>
         
-        <Navbar user={user} setUser={setUser} show={show} setShow={setShow} />
-        <Container fluid={true} className='mb-4 container'>
+        <Navbar user={user} setUser={setUser} show={show} setShow={setShow} cart={cart} />
+       
           <Routes>
-            <Route path="/" element={<Home />} />
+            <Route path="/" element={<Home fetchCart={fetchCart} cart={cart}/>} />
             <Route path="/login" element={<SignUpLogin fetchUser={fetchUser} />} />
-            <Route path="/product/:productId" element={<ShowProduct user={user}/>} />
+            <Route path="/product/:productId" element={<ShowProduct user={user} fecthCart={fetchCart}/>} />
             <Route path="/addproduct" element={<CreateProduct user={user} />} />
-            <Route path="/cart" element={ <Cart show={show} setShow={setShow}  />}/>
             {/* <Route path="/order" element={<Order />}/> */}
           </Routes>
-        </Container>
+          {<Cart show={show} setShow={setShow} cart={cart}   />}
+        
       </Router>
     
   )
