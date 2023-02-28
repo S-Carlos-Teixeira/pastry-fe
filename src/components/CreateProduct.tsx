@@ -1,19 +1,21 @@
-import axios from "axios"
-import { ChangeEvent, SyntheticEvent, useState } from "react"
-import { Col, Container, Form, Row } from "react-bootstrap"
-import { baseUrl } from "../config"
-import { IImage } from "../interfaces/image"
-import { IProduct, IProductCreate } from "../interfaces/product"
-import { IUser } from "../interfaces/user"
+import axios from 'axios'
+import { ChangeEvent, SyntheticEvent, useState } from 'react'
+import { Col, Container, Form, Row } from 'react-bootstrap'
+import { baseUrl } from '../config'
+import { IImage } from '../interfaces/image'
+import { IProduct, IProductCreate } from '../interfaces/product'
+import { IUser } from '../interfaces/user'
 
 interface createProductProps {
   user: IUser | null
 }
-function CreateProduct({user}: createProductProps) {
-  const [formDataCreateProd, setFormDataCreateProd] = useState<Partial<IProductCreate>>({
+function CreateProduct({ user }: createProductProps) {
+  const [formDataCreateProd, setFormDataCreateProd] = useState<
+    Partial<IProductCreate>
+  >({
     name: '',
     description: '',
-    price: 0 ,
+    price: 0,
     in_stock: false,
     image_url: ''
   })
@@ -23,10 +25,14 @@ function CreateProduct({user}: createProductProps) {
   async function handleSubmitCreateProd(e: SyntheticEvent) {
     e.preventDefault()
     try {
-      console.log(formDataCreateProd);
-      
+      console.log(formDataCreateProd)
+
       const token = localStorage.getItem('token')
-      const { data } = await axios.post(`${baseUrl}/product`, formDataCreateProd, { headers: { Authorization: `Bearer ${token}` } })
+      const { data } = await axios.post(
+        `${baseUrl}/product`,
+        formDataCreateProd,
+        { headers: { Authorization: `Bearer ${token}` } }
+      )
       console.log(data)
     } catch (err: any) {
       setErrorMessage(err.response.data.message)
@@ -36,15 +42,19 @@ function CreateProduct({user}: createProductProps) {
   function handleChangeCreateProd(event: ChangeEvent<HTMLInputElement>) {
     const newFormDataCreateProd: Partial<IProduct> & { [key: string]: any } =
       structuredClone(formDataCreateProd)
-    if (event.target.name !== "image_url") {
+    if (event.target.name !== 'image_url') {
       newFormDataCreateProd[event.target.name] = event.target.value
       console.log(newFormDataCreateProd)
       setFormDataCreateProd(newFormDataCreateProd)
       setErrorMessage('')
     }
-}
+  }
   return (
-    <Container fluid={true} className="bg-secondary rounded rounded-3 py-3 mb-3" style={{maxWidth: "30rem", }} >
+    <Container
+      fluid={true}
+      className="bg-secondary rounded rounded-3 py-3 mb-3"
+      style={{ maxWidth: '30rem' }}
+    >
       <Row>
         <Col>
           <h2>Create Product</h2>
@@ -77,13 +87,18 @@ function CreateProduct({user}: createProductProps) {
                 onChange={handleChangeCreateProd}
                 value={formDataCreateProd.price}
                 name="price"
-              />  
+              />
             </Form.Group>
             <Form.Group>
               <Form.Check
                 label="In Stock"
                 type="checkbox"
-                onChange={(e) => { setFormDataCreateProd({ ...formDataCreateProd, in_stock: e.target.checked }) }}
+                onChange={e => {
+                  setFormDataCreateProd({
+                    ...formDataCreateProd,
+                    in_stock: e.target.checked
+                  })
+                }}
               />
             </Form.Group>
             <Form.Group>
@@ -91,20 +106,22 @@ function CreateProduct({user}: createProductProps) {
               <Form.Control
                 type="text"
                 placeholder="Enter image url"
-                onChange={(e) => { setFormDataCreateProd({ ...formDataCreateProd, image_url: e.target.value }) }
-                
-                }
+                onChange={e => {
+                  setFormDataCreateProd({
+                    ...formDataCreateProd,
+                    image_url: e.target.value
+                  })
+                }}
               />
             </Form.Group>
-            <button type="submit" className="btn btn-primary">Create Product</button>
+            <button type="submit" className="btn btn-primary">
+              Create Product
+            </button>
           </Form>
         </Col>
-
       </Row>
     </Container>
-
   )
 }
 
 export default CreateProduct
-

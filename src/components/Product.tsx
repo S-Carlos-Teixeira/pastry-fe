@@ -1,5 +1,5 @@
 import axios from 'axios'
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import { Button, Card } from 'react-bootstrap'
 import { Link } from 'react-router-dom'
 import { baseUrl } from '../config'
@@ -27,9 +27,11 @@ function Product({ id, name, price, images, fetchCart, cart }: Partial<IProduct>
     const token = localStorage.getItem('token')
     const body = {quantity: cartItem?.quantity! - 1}
     console.log(token);
-    const {data}  = await axios.put(`${baseUrl}/cart_item/${cartItem?.id}`,body ,{
+    const {data}  = await axios.put(`${baseUrl}/cart_item/${cartItemFromCart? cartItemFromCart[0].id : undefined }`,body ,{
       headers: { Authorization: `Bearer ${token}` }
     })
+    console.log("Update",cartItem);
+    
     setCartItem(data)
     fetchCart()   
   }
@@ -37,17 +39,22 @@ function Product({ id, name, price, images, fetchCart, cart }: Partial<IProduct>
   async function handleDelete(){
     const token = localStorage.getItem('token')
     console.log(token);
-    const {data}  = await axios.delete(`${baseUrl}/cart_item/${cartItem?.id}`,{
+    const {data}  = await axios.delete(`${baseUrl}/cart_item/${cartItemFromCart? cartItemFromCart[0].id : undefined }`,{
       headers: { Authorization: `Bearer ${token}` }
     })
     setCartItem(null)
+    console.log("Remove",cartItem);
+    
     fetchCart()
   }
+
+
+    
 
   const cartItemFromCart = cart?.products.filter((product) => product.product_id === id) 
   console.log(cartItemFromCart);
   
-  const quantity = cartItemFromCart?.length ? cartItemFromCart[0].quantity : 0
+  const quantity = !cartItemFromCart?.length ?  0 : cartItemFromCart[0].quantity
   return (
     <Card className="">
       <Link to={`/product/${id}`}>
@@ -61,8 +68,8 @@ function Product({ id, name, price, images, fetchCart, cart }: Partial<IProduct>
       </Link>
       <Card.Body className="d-flex flex-column bg-secondary" >
         <Card.Title className="d-flex justify-content-between align-items-baseline mb-4">
-          <span className="fs-2">{name}</span>
-          <span className="ms-2 text-muted">{formatCurrency(price ? price : 999999999)}</span>
+          <span className="fs-5 fw-semibold">{name}</span>
+          <span className="ms-2">{formatCurrency(price ? price : 999999999)}</span>
         </Card.Title>
         <div className="mt-auto">
           {quantity === 0 ? (
@@ -75,7 +82,7 @@ function Product({ id, name, price, images, fetchCart, cart }: Partial<IProduct>
               <div className="d-flex align-items-center justify-content-center"style={{ gap: '.5rem' }}>
                 <Button variant="outline-primary" onClick={updateCart}>-</Button>
                 <div>
-                  <span className='fs-3'>{quantity}</span> in Cart
+                  <span className='fs-3'>{cartItemFromCart?.length ? cartItemFromCart[0].quantity : 0}</span>
                 </div>
                   
                 <Button variant="outline-primary" onClick={addToCart}>+</Button>

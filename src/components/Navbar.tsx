@@ -15,18 +15,20 @@ interface NavbarProps {
   cart: ICart | null
   setUser: Function
   setShow: Function
+  setCart: Function
 }
 
-function Navbar({ user, setUser, show, setShow, cart}: NavbarProps) {
+function Navbar({ user, setUser, show, setShow, cart, setCart}: NavbarProps) {
   const navigate = useNavigate()
   function logout() {
     localStorage.removeItem('token')
     setUser(null)
+    setCart(null)
     navigate('/')
   }
   return (
     <>
-      <header className="mb-5 fs-3">
+      <header className="h-50 fs-3 fw-bold">
         <NavbarBs className="shadow-md " sticky="top" expand="md">
           <Container fluid>
             <NavbarBs.Brand as={NavLink} to="/" className=" me-5">
@@ -34,7 +36,7 @@ function Navbar({ user, setUser, show, setShow, cart}: NavbarProps) {
                 className="img-fluid "
                 src={logo}
                 alt="logo"
-                style={{ width: '7rem' }}
+                style={{ width: '5rem' }}
               />
             </NavbarBs.Brand>
             <NavbarBs.Toggle aria-controls="navbarScroll" />
@@ -90,7 +92,7 @@ function Navbar({ user, setUser, show, setShow, cart}: NavbarProps) {
                   </svg>
                 </Button>
               )}
-              <Button
+              {user&&<Button
                 style={{ width: '3rem', height: '3rem', position: 'relative' }}
                 variant="outline-primary"
                 className="rounded-circle mx-2 my-2"
@@ -117,7 +119,7 @@ function Navbar({ user, setUser, show, setShow, cart}: NavbarProps) {
                 >
                   {cart?.products?.length}
                 </div>
-              </Button>
+              </Button>}
             </NavbarBs.Collapse>
           </Container>
         </NavbarBs>

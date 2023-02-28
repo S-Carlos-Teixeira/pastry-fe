@@ -6,6 +6,7 @@ $primary: #522b29;
 $secondary: #ADDBE2;
 $success: #ED6C87;
 $danger: #F5B1CC;
+$light: #dee2e6;
 $rose-quartz: #BBA8A7;
 $cherry-blossom-pink: #F3AAB9;
 $light-cyan: #D2EBEF;
@@ -19,15 +20,18 @@ $enable-rounded: true;
 
 header{
     background-color: $cherry-blossom-pink;
-    background-size: auto;
-    background-position: center;
+}
+footer{
+  background-color: $cherry-blossom-pink;
 }
 
 body{
   background-image: url(../assets/img/stories.png);
   background-color: $lavander-blush;
-  background-size: contain;
-  // background-position: center, center;
+  background-size: 20%;
+  background-position: center, center;
+  background-repeat: repeat;
+  background-attachment: scroll;
   
 }
 

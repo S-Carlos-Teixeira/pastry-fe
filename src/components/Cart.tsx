@@ -6,6 +6,7 @@ import { formatCurrency } from '../utility/currencyFormater'
 import CartItem from './CartItem'
 
 
+
 interface CartProps {
   show: boolean
   setShow: Function
@@ -15,18 +16,20 @@ interface CartProps {
 function Cart({ show, setShow, cart }: CartProps) {
   const handleClose = () => setShow(false)
   const handleShow = () => setShow(true)
-  if (!cart) return null
+
+  if (!cart) return (null)
+  
   return (
     <Container>
       
-      <Offcanvas show={show} onHide={handleClose} placement="end">
+      <Offcanvas  className="bg-light" show={show} onHide={handleClose} placement="end">
         <Offcanvas.Header closeButton>
           <Offcanvas.Title>Cart</Offcanvas.Title>
         </Offcanvas.Header>
         <Offcanvas.Body>
           <Stack gap={3}>
           {cart.products.map(item => (
-            cart && <CartItem key={item.id} {...item} />
+            <CartItem key={item.id} {...item} />
           ))}
           <div className="ms-auto fw-bold fs-5">
             Total{" "}
@@ -37,6 +40,7 @@ function Cart({ show, setShow, cart }: CartProps) {
             )}
           </div>            
           </Stack>
+          {cart.products.length > 0 &&<Button className="w-100 mt-3" onClick={handleClose}>Checkout</Button>}
         </Offcanvas.Body>
       </Offcanvas>
     </Container>

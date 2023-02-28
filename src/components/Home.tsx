@@ -4,7 +4,7 @@ import Product from './Product'
 import { baseUrl } from '../config'
 import { Row, Col, Container, Image } from 'react-bootstrap'
 import { ICart } from '../interfaces/cart'
-import Hero768 from '../../assets/img/Hero1200.png'
+import Hero from '../../assets/img/Hero.png'
 
 type Products = null | Array<IProduct>
 
@@ -33,12 +33,8 @@ function Home({
   if (!Products) return <h1>Loading...</h1>
   return (
     <>
-      {/* <div  style={{width:"100%", height:"auto" }}>
-        
-          <Image src={Hero768}  className="w-100 mx-auto" style={{objectFit: 'cover'}} />
-       
-      </div> */}
       <Container>
+      <Image src={Hero} className="rounded mb-3" fluid={true} style={{width:"100%"}}/>
         <Row xs={1} sm={1} md={2} lg={2} xl={3} className="g-3">
           {Products?.map(product => (
             <Col key={product.id}>
