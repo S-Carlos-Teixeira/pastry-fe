@@ -25,7 +25,7 @@ function App() {
     const { data } = await axios.get(`${baseUrl}/user`, {
       headers: { Authorization: `Bearer ${token}` }
     })
-    console.log(data)
+    // console.log(data)
 
     setUser(data)
     fetchCart()
@@ -37,7 +37,7 @@ function App() {
       headers: { Authorization: `Bearer ${token}` }
     })
     setCart(data)
-    console.log(cart)
+    // console.log(cart)
   }
 
   useEffect(() => {

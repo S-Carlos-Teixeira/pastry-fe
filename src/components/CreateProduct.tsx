@@ -25,7 +25,7 @@ function CreateProduct({ user }: createProductProps) {
   async function handleSubmitCreateProd(e: SyntheticEvent) {
     e.preventDefault()
     try {
-      console.log(formDataCreateProd)
+      // console.log(formDataCreateProd)
 
       const token = localStorage.getItem('token')
       const { data } = await axios.post(
@@ -33,7 +33,7 @@ function CreateProduct({ user }: createProductProps) {
         formDataCreateProd,
         { headers: { Authorization: `Bearer ${token}` } }
       )
-      console.log(data)
+      // console.log(data)
     } catch (err: any) {
       setErrorMessage(err.response.data.message)
     }
@@ -44,7 +44,7 @@ function CreateProduct({ user }: createProductProps) {
       structuredClone(formDataCreateProd)
     if (event.target.name !== 'image_url') {
       newFormDataCreateProd[event.target.name] = event.target.value
-      console.log(newFormDataCreateProd)
+      // console.log(newFormDataCreateProd)
       setFormDataCreateProd(newFormDataCreateProd)
       setErrorMessage('')
     }

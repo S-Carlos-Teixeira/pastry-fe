@@ -16,7 +16,7 @@ function Product({ id, name, price, images, fetchCart, cart }: Partial<IProduct>
   
   async function addToCart() {
     const token = localStorage.getItem('token')
-    console.log(token);
+    // console.log(token)
     const {data}  = await axios.post(`${baseUrl}/cart_item/product/${id}`,{} ,{
       headers: { Authorization: `Bearer ${token}` }
     })
@@ -26,11 +26,11 @@ function Product({ id, name, price, images, fetchCart, cart }: Partial<IProduct>
   async function updateCart(){
     const token = localStorage.getItem('token')
     const body = {quantity: cartItem?.quantity! - 1}
-    console.log(token);
+    // console.log(token)
     const {data}  = await axios.put(`${baseUrl}/cart_item/${cartItemFromCart? cartItemFromCart[0].id : undefined }`,body ,{
       headers: { Authorization: `Bearer ${token}` }
     })
-    console.log("Update",cartItem);
+    // console.log("Update",cartItem)
     
     setCartItem(data)
     fetchCart()   
@@ -38,12 +38,12 @@ function Product({ id, name, price, images, fetchCart, cart }: Partial<IProduct>
 
   async function handleDelete(){
     const token = localStorage.getItem('token')
-    console.log(token);
+    // console.log(token)
     const {data}  = await axios.delete(`${baseUrl}/cart_item/${cartItemFromCart? cartItemFromCart[0].id : undefined }`,{
       headers: { Authorization: `Bearer ${token}` }
     })
     setCartItem(null)
-    console.log("Remove",cartItem);
+    // console.log("Remove",cartItem);
     
     fetchCart()
   }
@@ -52,7 +52,7 @@ function Product({ id, name, price, images, fetchCart, cart }: Partial<IProduct>
     
 
   const cartItemFromCart = cart?.products.filter((product) => product.product_id === id) 
-  console.log(cartItemFromCart);
+  // console.log(cartItemFromCart)
   
   const quantity = !cartItemFromCart?.length ?  0 : cartItemFromCart[0].quantity
   return (

@@ -99,7 +99,7 @@ function SignUpLogin({ fetchUser }: { fetchUser: Function }) {
 
     newFormDataLogin[event.target.name] = event.target.value
 
-    console.log(newFormDataLogin)
+    // console.log(newFormDataLogin)
 
     setFormDataLogin(newFormDataLogin)
     setErrorMessage('')
@@ -110,7 +110,7 @@ function SignUpLogin({ fetchUser }: { fetchUser: Function }) {
       structuredClone(formDataSignup)
     newFormDataSignup[event.currentTarget.name] = event.currentTarget.value
 
-    console.log(newFormDataSignup)
+    // console.log(newFormDataSignup)
 
     setFormDataSignup(newFormDataSignup)
     setErrorMessage('')

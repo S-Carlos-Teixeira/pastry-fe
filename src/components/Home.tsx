@@ -18,7 +18,7 @@ function Home({
   const [Products, updateProducts] = React.useState<Products>(null)
 
   React.useEffect(() => {
-    console.log('The Home Page has mounted')
+    // console.log('The Home Page has mounted')
   }, [])
 
   React.useEffect(() => {
@@ -26,7 +26,7 @@ function Home({
       const resp = await fetch(`${baseUrl}/products`)
       const ProductsData = await resp.json()
       updateProducts(ProductsData)
-      console.log(ProductsData)
+      // console.log(ProductsData)
     }
     fetchProducts()
   }, [])

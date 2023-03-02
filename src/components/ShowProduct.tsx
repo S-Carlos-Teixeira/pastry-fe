@@ -35,14 +35,14 @@ function ShowProduct({ user, fecthCart, cart }: ShowProductProps) {
       structuredClone(formDataUpdateProd)
     if (event.target.name !== 'image_url') {
       newFormDataUpdateProd[event.target.name] = event.target.value
-      console.log(newFormDataUpdateProd)
+      // console.log(newFormDataUpdateProd)
       setFormDataUpdateProd(newFormDataUpdateProd)
     }
   }
   async function handleSubmitUpdateProd(e: SyntheticEvent) {
     e.preventDefault()
     try {
-      console.log(formDataUpdateProd)
+      // console.log(formDataUpdateProd)
 
       const token = localStorage.getItem('token')
       const { data } = await axios.put(
@@ -50,7 +50,7 @@ function ShowProduct({ user, fecthCart, cart }: ShowProductProps) {
         formDataUpdateProd,
         { headers: { Authorization: `Bearer ${token}` } }
       )
-      console.log(data)
+      // console.log(data)
       updateProduct(data)
     } catch (err: any) {
       setErrorMessage(err.response.data.message)
@@ -60,7 +60,7 @@ function ShowProduct({ user, fecthCart, cart }: ShowProductProps) {
   async function handleDeleteProduct(e: SyntheticEvent) {
     e.preventDefault()
     try {
-      console.log(formDataUpdateProd) 
+      // console.log(formDataUpdateProd) 
       const token = localStorage.getItem('token')
       const { data } = await axios.delete(
         `${baseUrl}/product/${product?.id}`,
@@ -76,7 +76,7 @@ function ShowProduct({ user, fecthCart, cart }: ShowProductProps) {
 
   async function addToCart() {
     const token = localStorage.getItem('token')
-    console.log(token)
+    // console.log(token)
     const { data } = await axios.post(
       `${baseUrl}/cart_item/product/${product?.id}`,
       {},
@@ -85,15 +85,15 @@ function ShowProduct({ user, fecthCart, cart }: ShowProductProps) {
       }
     )
     setCartItem(data)
-    console.log(cartItem)
+    // console.log(cartItem)
 
     fecthCart()
   }
   async function updateCart() {
     const token = localStorage.getItem('token')
     const body = { quantity: cartItem?.quantity! - 1 }
-    console.log(body)
-    console.log(token)
+    // console.log(body)
+    // console.log(token)
     const { data } = await axios.put(
       `${baseUrl}/cart_item/${cartItem?.id}`,
       body,
@@ -102,13 +102,13 @@ function ShowProduct({ user, fecthCart, cart }: ShowProductProps) {
       }
     )
     setCartItem(data)
-    console.log('updateCart', cartItem)
+    // console.log('updateCart', cartItem)
     fecthCart()
   }
 
   async function handleDelete() {
     const token = localStorage.getItem('token')
-    console.log(token)
+    // console.log(token)
     const { data } = await axios.delete(
       `${baseUrl}/cart_item/${cartItem?.id}`,
       {
@@ -120,21 +120,21 @@ function ShowProduct({ user, fecthCart, cart }: ShowProductProps) {
   }
 
   React.useEffect(() => {
-    console.log('Your product is available')
+    // console.log('Your product is available')
   }, [])
 
   React.useEffect(() => {
     async function fetchProducts() {
       const { data } = await axios.get(`${baseUrl}/product/${productId}`)
       updateProduct(data)
-      console.log(data)
+      // console.log(data)
     }
     fetchProducts()
   }, [])
   const cartItemFromCart = cart?.products.filter(
     item => item.product_id === product?.id
   )
-  console.log(cartItemFromCart)
+  // console.log(cartItemFromCart)
 
   const quantity = cartItemFromCart?.length ? cartItemFromCart[0].quantity : 0
 
