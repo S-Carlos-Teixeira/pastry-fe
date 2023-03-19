@@ -52,6 +52,7 @@ function ShowProduct({ user, fecthCart, cart }: ShowProductProps) {
       )
       // console.log(data)
       updateProduct(data)
+      navigate("/")
     } catch (err: any) {
       setErrorMessage(err.response.data.message)
     }
@@ -298,6 +299,7 @@ function ShowProduct({ user, fecthCart, cart }: ShowProductProps) {
                   <Form.Label>Images</Form.Label>
                   <Form.Control
                     type="text"
+                    autoComplete="off"
                     placeholder="Enter image url"
                     onChange={e => {
                       setFormDataUpdateProd({
@@ -315,6 +317,7 @@ function ShowProduct({ user, fecthCart, cart }: ShowProductProps) {
                   <Form.Label>Password</Form.Label>
                   <Form.Control
                     type="password"
+                    autoComplete="off"
                     placeholder="Enter password"
                     onChange={e => setFormDataPassword( e.target.value )} 
                     

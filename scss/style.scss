@@ -32,7 +32,14 @@ body{
   background-position: center, center;
   background-repeat: repeat;
   background-attachment: scroll;
-  
+}
+
+#root{
+  display:grid;
+  grid-template-rows: 1fr;
+  align-items: start;
+  height: 100dvh;
+  width: 100%;
 }
 
 

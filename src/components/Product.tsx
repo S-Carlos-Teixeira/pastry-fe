@@ -11,7 +11,7 @@ interface ProductProps {
   fetchCart: () => void
   cart: ICart | null
   }
-function Product({ id, name, price, images, fetchCart, cart }: Partial<IProduct> & ProductProps) {
+function Product({ id, name, price, images, in_stock, fetchCart, cart }: Partial<IProduct> & ProductProps) {
   const [cartItem, setCartItem] = useState<ICartItem | null>(null)
   
   async function addToCart() {
@@ -71,8 +71,8 @@ function Product({ id, name, price, images, fetchCart, cart }: Partial<IProduct>
           <span className="fs-5 fw-semibold">{name}</span>
           <span className="ms-2">{formatCurrency(price ? price : 999999999)}</span>
         </Card.Title>
-        <div className="mt-auto">
-          {quantity === 0 ? (
+        { in_stock && <div className="mt-auto">
+          {quantity === 0  ? (
             <Button className="w-100" onClick={addToCart}>+ Add To Cart</Button>
           ) : (
             <div
@@ -90,7 +90,7 @@ function Product({ id, name, price, images, fetchCart, cart }: Partial<IProduct>
               <Button variant="outline-success" onClick={handleDelete}>Remove</Button>
             </div>
           )}
-        </div>
+        </div>}
       </Card.Body>
     </Card>
   )

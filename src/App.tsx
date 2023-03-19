@@ -69,7 +69,7 @@ function App() {
           <Routes>
             <Route
               path="/"
-              element={<Home fetchCart={fetchCart} cart={cart} />}
+              element={<Home fetchCart={fetchCart} cart={cart} user={user}/>}
             />
             <Route
               path="/login"
