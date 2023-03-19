@@ -280,6 +280,7 @@ To build the Back-end, I used the Flask framework in Python and adopted the MVC 
 First, I created the models for the database and established their relationships. Next, I wrote the API endpoints by creating routes. Unlike other MVC frameworks, as Express, Flask links the routes, as a decorator, and controllers, as a function, together and relies on serializers to handle data conversion to/from JSON/dictionary formats. <br>
 To integrate the API with the database, I utilized Flask-SQLAlchemy. Additionally, I employed Flask-Marshmallow for data serialization.
 
+---
 * Models - In terms of models, I began by creating a base model with common attributes and methods that would be inherited by all other models. I then proceeded to define all the necessary models for the database. Using SQLAlchemy, I established the relationships between the models through the ```db.relationship()``` method and the ```back_populates``` argument.
 
 ```python
@@ -412,11 +413,30 @@ def delete_product(prod_id):
     except ValidationError as e:
         return {"errors": e.messages, "message": "Something went wrong"}
 ```
-* Serializers - As mentioned, I used Marshmallow to serialize / deserialize the data. A good aspect of serializers is that they can be used to populate the data in the response, for fields that has relationships with other models. <br> For example, the ```CartSchema``` has a ```products``` field that is populated with the ```CartItemSchema```. This is done by using the ```Nested``` property of the Marshmallow schema. This ```Nested``` property can also cascade from other schemas, as in the ```CartItemSchema``` that has a ```product``` field that is populated with the ```ProductforCartSchema```.
+---
+* Serializers were used to serialize and deserialize the data, with Marshmallow being the chosen tool. A significant advantage of serializers is that they can be used to populate response data fields that have relationships with other models. For instance, the ```CartSchema``` contains a ```products``` field that is populated using the ```CartItemSchema```, by leveraging the ```Nested``` property of the Marshmallow schema. The ```Nested``` property can also **cascade** from other schemas, such as the ```CartItemSchema``` that has a ```product``` field that is populated with the ```ProductforCartSchema```.
 
+```python
+class CartSchema(ma.SQLAlchemyAutoSchema):
+    class Meta:
+        include_fk = True
+        model = CartModel
+        load_instance = True
+        load_only = ("created_at", "updated_at")
+    products = fields.Nested("CartItemSchema", many=True)
 
+class CartItemSchema(ma.SQLAlchemyAutoSchema):
+    class Meta:
+        include_fk = True
+        model = CartItemModel
+        load_instance = True
+        load_only = ("created_at", "updated_at", "created_by")
+    product = fields.Nested("ProductForCartSchema")
+```
 
+* Another benefit of using serializers is the ability to select specific fields to include in the response data. This is achieved by utilizing the ```load_only``` property, which excludes the designated fields from the response. This feature is helpful when sensitive data needs to be concealed, or when fields that are not required in the response can be excluded.
 
+---
 
 ### Front-end
 
@@ -485,4 +505,11 @@ I have utilized advanced TypeScript features, such as ```Partial``` type, which 
 ## Bugs
 
 ## Future Improvements
-
+* Implementing a search bar to search for products by some criteria.
+* Implementing a feature that allows the user to sort products by price, name, etc.
+* Implementing a filter for products.
+* Implementing the integration of a payment gateway as Stripe.
+* Implementing the integration of the Cloudinary API to allow the user to upload images without having to provide a URL.
+* Implementing the order page.
+* Improving the responsiveness of the website.
+* fixing the bugs.
