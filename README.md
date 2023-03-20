@@ -28,47 +28,45 @@ This project was completed over the course of 2 weeks as a solo project for the 
 ## Technologies Used
 
 ### Back-end
-* Flask
-* Flask-SQLAlchemy
-* Flask-Marshmallow
-* Flask-bcrypt
-* pyjwt
-* Flask-cors
-* SQLAlchemy
-* psycopg2-binary
-* Marshmallow-sqlalchemy
-* Python-dotenv
-* Python
-* PostgreSQL
-* pgAdmin 4
-* Insomnia
-* Fly.io
-* Bit.io
-* Docker
-* VS Code
-
+* **[Flask](https://flask.palletsprojects.com/en/2.2.x/)**
+* **[Flask-SQLAlchemy](https://flask-sqlalchemy.palletsprojects.com/en/3.0.x/)**
+* **[Flask-Marshmallow](https://flask-marshmallow.readthedocs.io/en/latest/)**
+* **[Flask-bcrypt](https://flask-bcrypt.readthedocs.io/en/1.0.1/)**
+* **[pyjwt](https://pyjwt.readthedocs.io/en/stable/)**
+* **[Flask-cors](https://flask-cors.readthedocs.io/en/latest/)**
+* **[SQLAlchemy](https://docs.sqlalchemy.org/en/20/)**
+* **[psycopg2-binary](https://www.psycopg.org/docs/install.html)**
+* **[Marshmallow-sqlalchemy](https://marshmallow-sqlalchemy.readthedocs.io/en/latest/)**
+* **[Python-dotenv](https://pypi.org/project/python-dotenv/)**
+* **[Python](https://docs.python.org/3/)**
+* **[PostgreSQL](https://www.postgresql.org/docs/)**
+* **[pgAdmin 4](https://www.pgadmin.org/docs/)**
+* **[Insomnia](https://www.pgadmin.org/docs/)**
+* **[Fly.io](https://fly.io/docs/getting-started/)**
+* **[Bit.io](https://docs.bit.io/docs)**
+* **[Docker](https://docs.docker.com/reference/)**
+* **[VS Code](https://code.visualstudio.com/docs)**
 
 ### Front-end
 
-* Axios
-* Bootstrap
-* dotenv
-* Netlify  
-* react
-* react-bootstrap
-* react-dom
-* react-router-dom
-* react-icons
-* TypeScript
-* SCSS
-* HTML5
-* VS Code
-* Google Chrome
+* **[Axios](https://axios-http.com/docs/intro)**
+* **[Bootstrap](https://getbootstrap.com/docs/5.1/getting-started/introduction/)**
+* **[dotenv](https://www.npmjs.com/package/dotenv)**
+* **[Netlify](https://docs.netlify.com/)** 
+* **[react](https://reactjs.org/docs/getting-started.html)**
+* **[react-bootstrap](https://react-bootstrap.github.io/getting-started/introduction/)**
+* **[react-dom](https://reactjs.org/docs/react-dom.html)**
+* **[react-router-dom](https://reactrouter.com/en/6.9.0/start/overview)**
+* **[react-icons](https://react-icons.github.io/react-icons/)**
+* **[TypeScript](https://www.typescriptlang.org/docs/)**
+* **[SCSS](https://sass-lang.com/documentation)**
+* **[HTML5](https://developer.mozilla.org/en-US/docs/Web/HTML)**
+* **[VS Code](https://code.visualstudio.com/docs)**
+* **[Google Chrome](https://developers.google.com/web/tools/chrome-devtools)**
 
-
-### Side Technologies
-* Cloudinary
-* Escalidraw
+## Side Tools
+* **[Excalidraw](https://github.com/excalidraw/excalidraw#documentation)**
+* **[Cloudinary](https://cloudinary.com/documentation)**
 
 ## Brief
 
@@ -76,11 +74,11 @@ This project was completed over the course of 2 weeks as a solo project for the 
 
 You must:
 
-* **Build a full-stack application** by making your own backend and your own front-end
-* **Use a Python Flask API** using a Flask REST Framework to serve your data from a Postgres database
-* **Consume your API with a separate front-end** built with React
-* **Be a complete product** which most likely means multiple relationships and CRUD functionality for at least a couple of models
-* **Implement thoughtful user stories/wireframes** that are significant enough to help you know which features are core MVP and which you can cut
+* **Build a full-stack application** by making your own backend and your own front-end.
+* **Use a Python Flask API** using a Flask REST Framework to serve your data from a Postgres database.
+* **Consume your API with a separate front-end** built with React.
+* **Be a complete product** which most likely means multiple relationships and CRUD functionality for at least a couple of models.
+* **Implement thoughtful user stories/wireframes** that are significant enough to help you know which features are core MVP and which you can cut.
 * **Have a visually impressive design** to kick your portfolio up a notch and have something to wow future clients & employers. **ALLOW** time for this.
 * **Be deployed online** so it's publicly accessible.
 
@@ -88,16 +86,16 @@ You must:
 
 ### Necessary Deliverables
 
-* A **working app** hosted on the internet
-* A **link to your hosted working app** in the URL section of your Github repo
-* A **git repository hosted on Github**, with a link to your hosted project, and frequent commits dating back to the _very beginning_ of the project
+* A **working app** hosted on the internet.
+* A **link to your hosted working app** in the URL section of your Github repo.
+* A **git repository hosted on Github**, with a link to your hosted project, and frequent commits dating back to the _very beginning_ of the project.
 * **A `readme.md` file** with:
-    * An embedded screenshot of the app
-    * Explanations of the **technologies** used
-    * A couple paragraphs about the **general approach you took**
-    * **Installation instructions** for any dependencies
-    * Link to your **user stories/wireframes** – sketches of major views / interfaces in your application, if applicable
-    * Descriptions of any **unsolved problems** or **major hurdles** you had to overcome
+    * An embedded screenshot of the app.
+    * Explanations of the **technologies** used.
+    * A couple paragraphs about the **general approach you took**.
+    * **Installation instructions** for any dependencies.
+    * Link to your **user stories/wireframes** – sketches of major views / interfaces in your application, if applicable.
+    * Descriptions of any **unsolved problems** or **major hurdles** you had to overcome.
 
 ## Planning
 
@@ -230,48 +228,6 @@ Following that, I proceeded to create wireframes that outlined the essential str
 ![single-product-admin](./git-imgs/single-product-admin.png)
 ![cart](./git-imgs/cart-offcanvas.png)
 ![create-product](./git-imgs/create-product.png)
-
-## Technical Reference
-
-### Back-end
-* **[Flask](https://flask.palletsprojects.com/en/2.2.x/)**
-* **[Flask-SQLAlchemy](https://flask-sqlalchemy.palletsprojects.com/en/3.0.x/)**
-* **[Flask-Marshmallow](https://flask-marshmallow.readthedocs.io/en/latest/)**
-* **[Flask-bcrypt](https://flask-bcrypt.readthedocs.io/en/1.0.1/)**
-* **[pyjwt](https://pyjwt.readthedocs.io/en/stable/)**
-* **[Flask-cors](https://flask-cors.readthedocs.io/en/latest/)**
-* **[SQLAlchemy](https://docs.sqlalchemy.org/en/20/)**
-* **[psycopg2-binary](https://www.psycopg.org/docs/install.html)**
-* **[Marshmallow-sqlalchemy](https://marshmallow-sqlalchemy.readthedocs.io/en/latest/)**
-* **[Python-dotenv](https://pypi.org/project/python-dotenv/)**
-* **[Python](https://docs.python.org/3/)**
-* **[PostgreSQL](https://www.postgresql.org/docs/)**
-* **[pgAdmin 4](https://www.pgadmin.org/docs/)**
-* **[Insomnia](https://www.pgadmin.org/docs/)**
-* **[Fly.io](https://fly.io/docs/getting-started/)**
-* **[Bit.io](https://docs.bit.io/docs)**
-* **[Docker](https://docs.docker.com/reference/)**
-* **[VS Code](https://code.visualstudio.com/docs)**
-
-### Front-end
-
-* **[Axios](https://axios-http.com/docs/intro)**
-* **[Bootstrap](https://getbootstrap.com/docs/5.1/getting-started/introduction/)**
-* **[dotenv](https://www.npmjs.com/package/dotenv)**
-* **[Netlify](https://docs.netlify.com/)** 
-* **[react](https://reactjs.org/docs/getting-started.html)**
-* **[react-bootstrap](https://react-bootstrap.github.io/getting-started/introduction/)**
-* **[react-dom](https://reactjs.org/docs/react-dom.html)**
-* **[react-router-dom](https://reactrouter.com/en/6.9.0/start/overview)**
-* **[react-icons](https://react-icons.github.io/react-icons/)**
-* **[TypeScript](https://www.typescriptlang.org/docs/)**
-* **[SCSS](https://sass-lang.com/documentation)**
-* **[HTML5](https://developer.mozilla.org/en-US/docs/Web/HTML)**
-* **[VS Code](https://code.visualstudio.com/docs)**
-* **[Google Chrome](https://developers.google.com/web/tools/chrome-devtools)**
-
-## Side Tools
-* **[Excalidraw](https://github.com/excalidraw/excalidraw#documentation)**
 
 ## Build/Code Process
 
@@ -440,7 +396,180 @@ class CartItemSchema(ma.SQLAlchemyAutoSchema):
 
 ### Front-end
 
+I utilized the React framework to construct the front-end of the application, which is a single page application that utilizes React Router for routing. The front-end comprises several components that are responsible for different pages and resources within the application.
+
+Each component is designed to fulfill a specific task or purpose within the application, such as rendering product data or managing user authentication. By dividing the application into components, the code is more modular and easier to maintain.
+
+The use of React Router enables seamless navigation between different pages and resources within the application, creating a smoother user experience. This also allows for better organization and management of the front-end code.
+
+* The ```App``` component handles the routing and layout of the application and contains functions that manage the authentication of the ```user``` and the state of the ```cart```. As ```user``` and ```cart``` data are shared across multiple components in the application, the App component is the ideal location to handle and manage this data. This enables all child components to access and modify the state of them as needed.
+
+```TypeScript
+  function App() {
+    const [user, setUser] = useState<null | IUser>(null)
+    const [show, setShow] = useState(false)
+    const [cart, setCart] = useState<null | ICart>(null)
+
+   async function fetchUser() {
+    const token = localStorage.getItem('token')
+
+    const { data } = await axios.get(`${baseUrl}/user`, {
+      headers: { Authorization: `Bearer ${token}` }
+    })
+    // console.log(data)
+
+    setUser(data)
+    fetchCart()
+
+  }
+  async function fetchCart() {
+    const token = localStorage.getItem('token')
+    const { data } = await axios.get(`${baseUrl}/cart`, {
+      headers: { Authorization: `Bearer ${token}` }
+    })
+    setCart(data)
+    // console.log(cart)
+  }
+    useEffect(() => {
+    const token = localStorage.getItem('token')
+    if (token) fetchUser()
+  }, [])
+    useEffect(() => {
+    fetchCart()
+  }, [user])
+```
+* In the ```Home``` component, the product data is displayed as individual cards. Depending on the user role, they may have access to the full list of products or just the ones that are currently in stock. <br> <br>To achieve this, the products are conditionally rendered based on the user's role. If the user has a lower role, such as a customer, they will only see the products that are currently in stock. If the user has a higher role, they will see the full list of products. <br> <br> The conditional rendering logic allows for a personalized user experience based on their role, as shown below.
+
+```TypeScript
+      <Container>
+      <Image src={Hero} className="rounded mb-3" fluid={true} style={{width:"100%"}}/>
+        <Row xs={1} sm={1} md={2} lg={2} xl={3} className="g-3">
+          {/* mapping over the products and rendering them, if the user is not logged in or user role is customer, only show the products that are in stock, else show all products. */}
+          {Products?.map(product => ( !user || user?.role_id > 3 ?
+            product.in_stock && <Col key={product.id}>
+              {
+                <Product {...product} fetchCart={fetchCart} cart={cart} />
+              }
+            </Col> :  <Col key={product.id}>
+              {
+                <Product {...product} fetchCart={fetchCart} cart={cart} />
+              }
+            </Col>
+              ))}
+        </Row>
+      </Container>
+```
+To create the ```Cart``` component, I utilized the ```Offcanvas``` component available in the ```react-bootstrap``` library. This allowed me to achieve the desired side bar effect that can be toggled on and off. The ```show``` state is responsible for toggling the ```Cart``` component and is passed as a prop to both the ```Cart``` and ```Navbar``` components. The ```show``` state is updated by clicking on the cart button in the Navbar component.
+
+```TypeScript
+//button to toggle the cart from the navbar.
+  {user && <Button
+    style={{ width: '3rem', height: '3rem', position: 'relative' }}
+    variant="outline-primary"
+    className="rounded-circle mx-2 my-2"
+    onClick={()=>{setShow(true)}}
+  >
+
+// show state on the app component is passed as a prop to the cart and navbar components.
+const [show, setShow] = useState(false)
+<Navbar user={user} setUser={setUser} show={show} setShow={setShow} cart={cart} setCart={setCart}/>
+<Cart show={show} setShow={setShow} cart={cart} />
+
+// the cart component is rendered as an offcanvas component.
+    <Container>
+      <Offcanvas  className="bg-light" show={show} onHide={handleClose} placement="end">
+        <Offcanvas.Header closeButton>
+          <Offcanvas.Title>Cart</Offcanvas.Title>
+        </Offcanvas.Header>
+        <Offcanvas.Body>
+          <Stack gap={3}>
+          {cart.products.map(item => (
+            <CartItem key={item.id} {...item} />
+          ))}
+          <div className="ms-auto fw-bold fs-5">
+            Total{" "}
+            {formatCurrency(
+              cart.products.reduce((total, cartItem) => {
+                return total + (cartItem.product?.price || 0) * (cartItem.quantity || 0)
+              }, 0)
+            )}
+          </div>            
+          </Stack>
+          {cart.products.length > 0 &&<Button className="w-100 mt-3" onClick={handleClose}>Checkout</Button>}
+        </Offcanvas.Body>
+      </Offcanvas>
+    </Container>
+```
+The purpose of the formatCurrency function is to format the total price of the cart with the correct currency symbol and decimal places. This function utilizes the **[internationalization API](https://tc39.es/ecma402/#numberformat-objects)** to achieve this.
+
+The internationalization API provides a way to format numbers and currencies based on the user's language and location. In the case of the formatCurrency function, it is used to format the total price with the appropriate currency symbol and decimal places for the user's locale.
+
+```TypeScript
+// Cart component
+          <div className="ms-auto fw-bold fs-5">
+            Total{" "}
+            {formatCurrency(
+              cart.products.reduce((total, cartItem) => {
+                return total + (cartItem.product?.price || 0) * (cartItem.quantity || 0)
+              }, 0)
+            )}
+          </div>
+
+// formatCurrency function
+const currencyFormater = new Intl.NumberFormat(undefined, {
+  style: 'currency',
+  currency: 'GBP',
+  minimumFractionDigits: 2,
+  maximumFractionDigits: 2,
+});
+
+export function formatCurrency(value: number) {
+  return currencyFormater.format(value);
+}
+```
+
+---
+
+You can see below some snapshots of the app, at different conditions.
+
+* **Home page no products**
+
+![no-products](./git-imgs/app-without-products.png)
+
+* **Home page logged as customer**
+
+![logged-as-customer](./git-imgs/logged%20as%20customer.png)
+
+* **Home page logged as admin**<br><br>Here you can see that the admin has access to the full list of products, including the ones that are out of stock. the 3rd product is out of stock no ( +Add To Cart button) . 
+
+![logged-as-admin](./git-imgs/logged%20as%20admin.png)
+
+* **Create Product Form** <br><br> The create product form is available to the admin, owner and employee roles.
+
+![create-product-form](./git-imgs/create-product-screen.png)
+
+* **Sign in / Sign up page**
+
+![login-signup](./git-imgs/sign-in%20sign-up%20screen.png)
+
+* **Product Card Customer**
+
+![product-card-customer](./git-imgs/card-customer.png)
+
+* **Product Card Admin** <br><br> The product card for the admin has an extra form to edit / delete the product.
+
+![product-card-admin](./git-imgs/card%20as%20admin.png)
+![product-card-form](./git-imgs/product%20update%20form.png)
+
+* **Cart**
+
+![cart](./git-imgs/checkout%20offcanvas.png)
+![cart-close-up](./git-imgs/cart-close-up.png)
+
 ## Challenges
+
+I had difficulty switching from Flask/Python to React/TypeScript because of the syntax differences between the two languages. Although I had been working with Python for a full month in the back-end of the project and during classes, it took me an entire day to remember the TypeScript syntax and use it naturally when I started working on the front-end.
+
 
 ## Wins
 When handling product creation, I faced a challenge that I solved and it was a win for me, as the Front-end sent both product and image data in the same request. However, I could not use the raw request data to create the product or the image. To handle this, I used the ```unknown = EXCLUDE``` property of the Marshmallow schema to prevent the schema from accepting any data that was not defined in it for the product. As for the image, I created a separate dictionary that only contained the relevant data from the request and the product, and then loaded it into the image schema using the ```load``` method. This allowed me to create both data entries in the same request.
@@ -500,9 +629,21 @@ I have utilized advanced TypeScript features, such as ```Partial``` type, which 
       structuredClone(formDataUpdateProd)
 ``` 
 
-## Key Learnings/Takeaways
 
-## Bugs
+## Key Learnings/Takeaways
+### Front-end
+* I learned how to work with TypeScript complex types, as mentined on the Wins section.
+* The internationalization API was a great learning experience, as I had never used it before.
+* I made use of React Bootstrap components, in the proper way.
+* I learned how to customise the Bootstrap Fonts and Colors using Scss.
+
+### Back-end
+* Currently, Python is my second language, and it is a significant accomplishment for me. Although I am not yet fluent in it and require further improvement, I am capable of reading and comprehending Python code.
+
+* I learned how to create my own decorators, which I used to secure the routes, but it can be used for other purposes as well.
+
+* I got a good understanding of the flask framework and how to use it to create a RESTful API.
+
 
 ## Future Improvements
 * Implementing a search bar to search for products by some criteria.
@@ -513,3 +654,4 @@ I have utilized advanced TypeScript features, such as ```Partial``` type, which 
 * Implementing the order page.
 * Improving the responsiveness of the website.
 * fixing the bugs.
+* Deploy the Back-end with a deployment server such as Gunicorn.

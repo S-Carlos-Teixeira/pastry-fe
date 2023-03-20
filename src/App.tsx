@@ -40,10 +40,10 @@ function App() {
     // console.log(cart)
   }
 
-  useEffect(() => {
-    localStorage.removeItem('token')
-    setUser(null)
-  }, [])
+  // useEffect(() => {
+  //   localStorage.removeItem('token')
+  //   setUser(null)
+  // }, [])
 
   useEffect(() => {
     const token = localStorage.getItem('token')
@@ -57,13 +57,7 @@ function App() {
     <>
       <main>
         <Router>
-          <Navbar
-            user={user}
-            setUser={setUser}
-            show={show}
-            setShow={setShow}
-            cart={cart}
-            setCart={setCart}
+          <Navbar user={user} setUser={setUser} show={show} setShow={setShow}cart={cart} setCart={setCart}
           />
 
           <Routes>

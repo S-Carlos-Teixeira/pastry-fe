@@ -92,7 +92,7 @@ function Navbar({ user, setUser, show, setShow, cart, setCart}: NavbarProps) {
                   </svg>
                 </Button>
               )}
-              {user&&<Button
+              {user && <Button
                 style={{ width: '3rem', height: '3rem', position: 'relative' }}
                 variant="outline-primary"
                 className="rounded-circle mx-2 my-2"

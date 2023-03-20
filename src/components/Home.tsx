@@ -37,7 +37,9 @@ function Home({
     <>
       <Container>
       <Image src={Hero} className="rounded mb-3" fluid={true} style={{width:"100%"}}/>
+       {/* mapping over the products and rendering them, if the user is not logged in or user role is customer, only show the products that are in stock, else show all products. */}
         <Row xs={1} sm={1} md={2} lg={2} xl={3} className="g-3">
+
           {Products?.map(product => ( !user || user?.role_id > 3 ?
             product.in_stock && <Col key={product.id}>
               {
