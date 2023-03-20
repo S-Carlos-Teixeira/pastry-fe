@@ -233,7 +233,7 @@ Following that, I proceeded to create wireframes that outlined the essential str
 
 ### Back-end
 To build the Back-end, I used the Flask framework in Python and adopted the MVC approach. I stored the data in a PostgreSQL database. <br>
-First, I created the models for the database and established their relationships. Next, I wrote the API endpoints by creating routes. Unlike other MVC frameworks, as Express, Flask links the routes, as a decorator, and controllers, as a function, together and relies on serializers to handle data conversion to/from JSON/dictionary formats. <br>
+First, I created the models for the database and established their relationships. Next, I wrote the API endpoints by creating routes. Unlike other MVC frameworks, such as Express, Flask links the routes, as a decorator, and controllers, as a function, together and relies on serializers to handle data conversion to/from JSON/dictionary formats. <br>
 To integrate the API with the database, I utilized Flask-SQLAlchemy. Additionally, I employed Flask-Marshmallow for data serialization.
 
 ---
@@ -279,7 +279,7 @@ class ProductModel(db.Model, BaseModel):
 In my model design, I utilized two primary types of relationships. The first was a one-to-many connection that linked most of the models, such as the ```ProductModel``` and ```ImageModel```, and the ```UserModel``` and ```ProductModel```. The second relationship type was a many-to-many connection that linked the ```ProductModel``` and ```CartModel``` through the ```CartItemModel```. The ```CartItemModel``` is a join table that stores the foreign keys of the ```ProductModel``` and ```CartModel```, as well as the quantity of the selected product.
 
 
-* one-to-many relationship between products and images, refere to the ```ProductModel``` above.
+* one-to-many relationship between products and images, refer to the ```ProductModel``` above.
 ```python
 class ImageModel(db.Model, BaseModel):
     __tablename__ = "images"
@@ -289,7 +289,7 @@ class ImageModel(db.Model, BaseModel):
     product = db.relationship("ProductModel", back_populates="images")
 ```
 
-* many-to-many relationship between products and carts, refere to the ```ProductModel``` above.
+* many-to-many relationship between products and carts, refer to the ```ProductModel``` above.
 ```python
 class CartModel(db.Model, BaseModel):
     # table name
@@ -321,7 +321,7 @@ class CartItemModel (db.Model, BaseModel):
     cart = db.relationship("CartModel", back_populates= "products")
 ```
 ---
-* Routes / Controllers - the routers are straight foward and follow the RESTful convention. The Controllers relly on the try exception block to handle errors and prevent the server from crashing. I also used ```if``` statments to check through the incoming data and return the appropriate response.
+* Routes / Controllers - the routers are straightforward and follow the RESTful convention. The Controllers relly on the try exception block to handle errors and prevent the server from crashing. I also used ```if``` statements to check through the incoming data and return the appropriate response.
 
 ```python
 @router.route("/product/<int:prod_id>", methods=["GET"])
@@ -459,7 +459,7 @@ The use of React Router enables seamless navigation between different pages and 
         </Row>
       </Container>
 ```
-To create the ```Cart``` component, I utilized the ```Offcanvas``` component available in the ```react-bootstrap``` library. This allowed me to achieve the desired side bar effect that can be toggled on and off. The ```show``` state is responsible for toggling the ```Cart``` component and is passed as a prop to both the ```Cart``` and ```Navbar``` components. The ```show``` state is updated by clicking on the cart button in the Navbar component.
+To create the ```Cart``` component, I utilized the ```Offcanvas``` component available in the ```react-bootstrap``` library. This allowed me to achieve the desired sidebar effect that can be toggled on and off. The ```show``` state is responsible for toggling the ```Cart``` component and is passed as a prop to both the ```Cart``` and ```Navbar``` components. The ```show``` state is updated by clicking on the cart button in the Navbar component.
 
 ```TypeScript
 //button to toggle the cart from the navbar.
@@ -516,7 +516,7 @@ The internationalization API provides a way to format numbers and currencies bas
           </div>
 
 // formatCurrency function
-const currencyFormater = new Intl.NumberFormat(undefined, {
+const currencyFormatter = new Intl.NumberFormat(undefined, {
   style: 'currency',
   currency: 'GBP',
   minimumFractionDigits: 2,
@@ -540,7 +540,7 @@ You can see below some snapshots of the app, at different conditions.
 
 ![logged-as-customer](./git-imgs/logged%20as%20customer.png)
 
-* **Home page logged as admin**<br><br>Here you can see that the admin has access to the full list of products, including the ones that are out of stock. the 3rd product is out of stock no ( +Add To Cart button) . 
+* **Home page logged as admin**<br><br>Here you can see that the admin has access to the full list of products, including the ones that are out of stock. The 3rd product is out of stock, no ( +Add To Cart button) . 
 
 ![logged-as-admin](./git-imgs/logged%20as%20admin.png)
 
@@ -632,10 +632,10 @@ I have utilized advanced TypeScript features, such as ```Partial``` type, which 
 
 ## Key Learnings/Takeaways
 ### Front-end
-* I learned how to work with TypeScript complex types, as mentined on the Wins section.
+* I learned how to work with TypeScript complex types, as mentioned in the Wins section.
 * The internationalization API was a great learning experience, as I had never used it before.
 * I made use of React Bootstrap components, in the proper way.
-* I learned how to customise the Bootstrap Fonts and Colors using Scss.
+* I learned how to customize the Bootstrap Fonts and Colors using Scss.
 
 ### Back-end
 * Currently, Python is my second language, and it is a significant accomplishment for me. Although I am not yet fluent in it and require further improvement, I am capable of reading and comprehending Python code.
@@ -651,10 +651,9 @@ I have utilized advanced TypeScript features, such as ```Partial``` type, which 
 ## Future Improvements
 * Implementing a search bar to search for products by some criteria.
 * Implementing a feature that allows the user to sort products by price, name, etc.
-* Implementing a filter for products.
 * Implementing the integration of a payment gateway as Stripe.
 * Implementing the integration of the Cloudinary API to allow the user to upload images without having to provide a URL.
 * Implementing the order page.
 * Improving the responsiveness of the website.
-* fixing the bugs.
+* Fixing the buttons on the cart page.
 * Deploy the Back-end with a deployment server such as Gunicorn.

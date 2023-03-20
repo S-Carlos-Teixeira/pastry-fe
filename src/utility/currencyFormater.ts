@@ -1,4 +1,4 @@
-const currencyFormater = new Intl.NumberFormat(undefined, {
+const currencyFormatter = new Intl.NumberFormat(undefined, {
   style: 'currency',
   currency: 'GBP',
   minimumFractionDigits: 2,
@@ -6,5 +6,5 @@ const currencyFormater = new Intl.NumberFormat(undefined, {
 });
 
 export function formatCurrency(value: number) {
-  return currencyFormater.format(value);
+  return currencyFormatter.format(value);
 }
