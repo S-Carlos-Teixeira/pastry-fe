@@ -640,9 +640,12 @@ I have utilized advanced TypeScript features, such as ```Partial``` type, which 
 ### Back-end
 * Currently, Python is my second language, and it is a significant accomplishment for me. Although I am not yet fluent in it and require further improvement, I am capable of reading and comprehending Python code.
 
+* I got the concept of pipenv and how to use it to create virtual environments.
+
 * I learned how to create my own decorators, which I used to secure the routes, but it can be used for other purposes as well.
 
 * I got a good understanding of the flask framework and how to use it to create a RESTful API.
+
 
 
 ## Future Improvements
