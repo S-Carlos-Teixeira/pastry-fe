@@ -7,7 +7,7 @@ This is a comprehensive web application designed for a fictitious confectionery 
   The project can be accessed on **[my GitHub profile on pastry-fe repository,](https://github.com/scarlosteixeira/pastry-fe)** **[and the Back-end on the pastry-be repository.](https://github.com/scarlosteixeira/pastry-be)**
 
   ### Back-end
-  1. Clone the repository using `git clone https://github.com/scarlosteixeira/pastry-be.git
+  1. Clone the repository using `git clone https://github.com/scarlosteixeira/pastry-be.git`
   2. install pipenv using `pip install pipenv`
   3. install dependencies using `pipenv install`
   4. Create your PostgreSQL database local server (i`m using pgAdmin 4)
@@ -16,7 +16,7 @@ This is a comprehensive web application designed for a fictitious confectionery 
 
 
   ### Front-end
-  1. Clone the repository using `git clone https://github.com/scarlosteixeira/pastry-fe.git
+  1. Clone the repository using `git clone https://github.com/scarlosteixeira/pastry-fe.git`
   2. install dependencies using `npm install`
   3. Make sure that the back-end is running
   4. Run the application using `npm run dev`
