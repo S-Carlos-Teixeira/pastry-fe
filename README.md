@@ -4,7 +4,7 @@
 This is a comprehensive web application designed for a fictitious confectionery business. The application enables users to view the available products, add or remove products to/from their cart, and place an order. Additionally, the application offers the business owner the ability to add, edit, or delete products. It includes different role levels, such as admin, owner, employee, and customer, each with varying degrees of functionality access. The Front-end of the application is built using React and TypeScript, while the Back-end uses Flask and Python and is powered by a PostgreSQL database. The application is hosted on Netlify for the Front-end, Fly.io for the Back-end, and Bit.io for the database.
 
 ## Getting Started
-  The project can be accessed on **[my GitHub profile on pastry-fe repository,](https://github.com/scarlosteixeira/pastry-fe)** **[and the Back-end on the pastry-be repository.](https://github.com/scarlosteixeira/pastry-be)**
+  The project can be accessed on **[my GitHub profile on pastry-fe repository,](https://github.com/scarlosteixeira/pastry-fe)** **[and the Back-end on the pastry-be repository;](https://github.com/scarlosteixeira/pastry-be)** You also can access the application on **[Netlify](https://tabatas-confectionery.netlify.app/)**
 
   ### Back-end
   1. Clone the repository using `git clone https://github.com/scarlosteixeira/pastry-be.git`
@@ -53,11 +53,11 @@ This project was completed over the course of 2 weeks as a solo project for the 
 * **[Bootstrap](https://getbootstrap.com/docs/5.1/getting-started/introduction/)**
 * **[dotenv](https://www.npmjs.com/package/dotenv)**
 * **[Netlify](https://docs.netlify.com/)** 
-* **[react](https://reactjs.org/docs/getting-started.html)**
-* **[react-bootstrap](https://react-bootstrap.github.io/getting-started/introduction/)**
-* **[react-dom](https://reactjs.org/docs/react-dom.html)**
-* **[react-router-dom](https://reactrouter.com/en/6.9.0/start/overview)**
-* **[react-icons](https://react-icons.github.io/react-icons/)**
+* **[React](https://reactjs.org/docs/getting-started.html)**
+* **[React-bootstrap](https://react-bootstrap.github.io/getting-started/introduction/)**
+* **[React-dom](https://reactjs.org/docs/react-dom.html)**
+* **[React-router-dom](https://reactrouter.com/en/6.9.0/start/overview)**
+* **[React-icons](https://react-icons.github.io/react-icons/)**
 * **[TypeScript](https://www.typescriptlang.org/docs/)**
 * **[SCSS](https://sass-lang.com/documentation)**
 * **[HTML5](https://developer.mozilla.org/en-US/docs/Web/HTML)**
@@ -103,7 +103,10 @@ To begin with, I created the database structure and models. Following that, I ge
 
 ![Database Structure](./git-imgs/database-ERD.png)
 
+The seed.py file is designed to populate the database with data and test the data models. It begins by establishing a connection with the database, deleting any existing data and creating the necessary tables. Next, it proceeds to populate the tables with initial data. Upon completion, it will display the message "Database seeded!" if everything runs smoothly. However, if an error occurs, it will print an error message instead.
+
 ```python
+#roles list, to be seeded into the role table, it has a relationship with the user table.
 roles = ["Admin", "Owner", "Employee", "Customer"]
 
 with app.app_context():
@@ -131,28 +134,6 @@ with app.app_context():
         )
         user.save()
         
-        user_owner = UserModel(
-            email="owner@pastry.com",
-            username="owner",
-            password="1q2w3e4r5t6Y.",
-            name="Carlos",
-            surname="Teixeira",
-            phone="07767668992",
-            role_id=2,
-        )
-        user_owner.save()
-
-        user_employee = UserModel(
-            email="employee@pastry.com",
-            username="employee",
-            password="1q2w3e4r5t6Y.",
-            name="Carlos",
-            surname="Teixeira",
-            phone="07767668993",
-            role_id=3,
-        )
-        user_employee.save()
-        
         user_customer = UserModel(
             email="customer@pastry.com",
             username="customer",
@@ -162,22 +143,6 @@ with app.app_context():
             phone="07767668999",
         )
         user_customer.save()
-
-        address = AddressModel(
-            country = "Monaco",
-            fullname = user_customer.name + " " +user_customer.surname,
-            phone = user_customer.phone,
-            postcode = "DT7 6LJ",
-            address_line_1 = "88745 Evangeline Falls",
-            address_line_2 = "Suite 496",
-            town_city = "Irvingville",
-            county = "West Sussex",
-            delivery_instr = "Leave at door.",
-            is_default = True,
-            is_billing_address = True,
-            user_id = user_customer.id
-        )
-        address.save()
 
         product = ProductModel(
             name="Banana Cake",
@@ -190,35 +155,14 @@ with app.app_context():
 
         image = ImageModel(image_url="https://source.unsplash.com/500x500/?food-drink,Cake", product_id=product.id)
         image.save()
-
-        product_2 = ProductModel(
-            name = "Product 2",
-            description= "The beautiful range of Apple Naturalé that has an exciting mix of natural ingredients. With the Goodness of 100% Natural Ingredients",
-            price = 366.00,
-            in_stock = True,
-            created_by = user.id,
-        )
-        product_2.save()
-
-        image_2 = ImageModel( image_url = "https://source.unsplash.com/500x500/?food-drink,Cake", product_id=product_2.id)
-        image_2.save()
-
-        cart = CartModel(user_id = user_customer.id)
-        cart.save()
-
-        cart_item = CartItemModel(product_id= product.id, cart_id = cart.id)
-        cart_item.save()
-
-        cart_item_2 = CartItemModel(product_id= product_2.id, cart_id = cart.id, quantity = 3)
-        cart_item_2.save()
-
-        order = OrderModel(cart_id=cart.id, user_id= user_customer.id, total = (cart_item.quantity*product.price)+(cart_item_2.quantity*product_2.price) )
-        order.save()
         print("Database seeded!")
     except Exception as e:
         print("exception", e)
+
 ```
-Following that, I proceeded to create wireframes that outlined the essential structure of a functional application, as well as some additional features for the Front-end.
+Afterwards, I moved on to creating wireframes which illustrate the fundamental layout of my application, with only the essential features needed to meet the basic requirements of the project, known as Minimum Viable Product (MVP), in addition to some supplementary features for the Front-end, that would be implemented due to time frame. I used [Excalidraw](https://excalidraw.com/) to create the wireframes.
+
+You can check the wireframes below:
 
 ![wireframe-full](./git-imgs/wireframe-full.png)
 ![main-page](./git-imgs/main-page.png)
@@ -632,7 +576,7 @@ I have utilized advanced TypeScript features, such as ```Partial``` type, which 
 
 ## Key Learnings/Takeaways
 ### Front-end
-* I learned how to work with TypeScript complex types, as mentioned in the Wins section.
+* I learned how to work with TypeScript complex types, as mentioned in the "Wins" section.
 * The internationalization API was a great learning experience, as I had never used it before.
 * I made use of React Bootstrap components, in the proper way.
 * I learned how to customize the Bootstrap Fonts and Colors using Scss.
