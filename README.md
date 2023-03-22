@@ -2,6 +2,7 @@
 
 ## Description
 This is a comprehensive web application designed for a fictitious confectionery business. The application enables users to view the available products, add or remove products to/from their cart, and place an order. Additionally, the application offers the business owner the ability to add, edit, or delete products. It includes different role levels, such as admin, owner, employee, and customer, each with varying degrees of functionality access. The Front-end of the application is built using React and TypeScript, while the Back-end uses Flask and Python and is powered by a PostgreSQL database. The application is hosted on Netlify for the Front-end, Fly.io for the Back-end, and Bit.io for the database.
+ 
 
 ## Getting Started
   The project can be accessed on **[my GitHub profile on pastry-fe repository,](https://github.com/scarlosteixeira/pastry-fe)** **[and the Back-end on the pastry-be repository;](https://github.com/scarlosteixeira/pastry-be)** You also can access the application on **[Netlify](https://tabatas-confectionery.netlify.app/)**
