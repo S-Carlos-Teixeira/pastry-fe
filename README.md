@@ -5,7 +5,7 @@ This is a comprehensive web application designed for a fictitious confectionery 
  
 
 ## Getting Started
-  The project can be accessed on **[my GitHub profile on pastry-fe repository,](https://github.com/scarlosteixeira/pastry-fe)** **[and the Back-end on the pastry-be repository;](https://github.com/scarlosteixeira/pastry-be)** You also can access the application on **[Netlify](https://tabatas-confectionery.netlify.app/)**
+  The project can be accessed on **[my GitHub profile on pastry-fe repository,](https://github.com/scarlosteixeira/pastry-fe)** **[and the Back-end on the pastry-be repository;](https://github.com/scarlosteixeira/pastry-be)** You also can access the application on **[Netlify](https://tabatasconfectionery.netlify.app/)**
 
   ### Back-end
   1. Clone the repository using `git clone https://github.com/scarlosteixeira/pastry-be.git`
@@ -68,7 +68,7 @@ This project was completed over the course of 2 weeks as a solo project for the 
 ## Side Tools
 * **[Excalidraw](https://github.com/excalidraw/excalidraw#documentation)**
 * **[Cloudinary](https://cloudinary.com/documentation)**
-
+* **[GitHub](https://docs.github.com/en)**
 ## Brief
 
 ### Technical Requirements
