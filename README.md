@@ -485,7 +485,7 @@ You can see below some snapshots of the app, at different conditions.
 
 ![logged-as-customer](./git-imgs/logged%20as%20customer.png)
 
-* **Home page logged as admin**<br><br>Here you can see that the admin has access to the full list of products, including the ones that are out of stock. The 3rd product is out of stock, no ( +Add To Cart button) . 
+* **Home page logged as admin**<br><br>Here you can see that the admin has access to the full list of products, including the ones that are out of stock. The 3rd product is out of stock, no ( +Add To Cart button). 
 
 ![logged-as-admin](./git-imgs/logged%20as%20admin.png)
 
@@ -601,4 +601,4 @@ I have utilized advanced TypeScript features, such as ```Partial``` type, which 
 * Implementing the order page.
 * Improving the responsiveness of the website.
 * Fixing the buttons on the cart page.
-* Deploy the Back-end with a deployment server such as Gunicorn.
+* Deploying the Back-end with a deployment server such as Gunicorn.
