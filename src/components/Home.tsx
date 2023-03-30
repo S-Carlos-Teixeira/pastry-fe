@@ -6,6 +6,7 @@ import { Row, Col, Container, Image } from 'react-bootstrap'
 import { ICart } from '../interfaces/cart'
 import Hero from '../../assets/img/Hero.png'
 import { IUser } from '../interfaces/user'
+import axios from 'axios'
 
 type Products = null | Array<IProduct>
 
@@ -17,19 +18,17 @@ function Home({
   fetchCart: () => void
   user: IUser | null | undefined
 }) {
-  const [Products, updateProducts] = React.useState<Products>(null)
+  const [Products, setProducts] = React.useState<Products>(null)
 
   React.useEffect(() => {
     // console.log('The Home Page has mounted')
   }, [])
-
+  async function fetchProducts() {
+    const { data } = await axios.get(`${baseUrl}/products`)
+    setProducts(data)
+    console.log(data)
+  }
   React.useEffect(() => {
-    async function fetchProducts() {
-      const resp = await fetch(`${baseUrl}/products`)
-      const ProductsData = await resp.json()
-      updateProducts(ProductsData)
-      console.log(user)
-    }
     fetchProducts()
   }, [])
   if (!Products) return <h1>Loading...</h1>
